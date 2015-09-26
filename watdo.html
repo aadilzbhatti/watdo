@@ -15,7 +15,8 @@
 
 	<div class="container">
 		<header>
-			<h1>Events</h1>
+			<h1>Events:</h1>
+			<hr>
 		</header>
 
 		<ul>
@@ -27,5 +28,8 @@
 </body>
 
 <template name="event">
-  <li>{{title}}</li>
+  <li>
+  	<span class="title">{{title}}</span>
+  	<span class="description">{{description}}</span>
+  </li>
 </template>

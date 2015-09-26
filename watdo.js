@@ -18,6 +18,7 @@ if (Meteor.isClient) {
         		console.log("description: " + el.find("description").text());
     		});
 		});
+        eventful_search();
       	return Events.find({});
     }
   });
@@ -46,7 +47,15 @@ function eventful_search() {
         };
         EVDB.API.call("json/events/search", oArgs, function(oData)
         {
-            console.log(oData);
+            for (i = 0; i < oData.events.event.length; i++)
+            {
+        		Events.insert({
+        			title: oData.events.event[i].title,
+        			date: oData.events.event[i].start_time,
+        			link: oData.events.event[i].url,
+        			description: oData.events.event[i].description
+        		});
+            }
         });
     });
 }

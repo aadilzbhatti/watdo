@@ -32,11 +32,20 @@ function eventful_search() {
             console.log(oData);
             for (i = 0; i < oData.events.event.length; i++)
             {
+              fullDescription = oData.events.event[i].description;
+              dArray = fullDescription.split(" ");
+              summary = "";
+              if(dArray.length >= 15) {
+                for(j = 0; j <  15; j++) {
+                  summary += " " + dArray[j];
+                }
+              }
+              summary += "...";
         		Events.insert({
         			title: oData.events.event[i].title,
         			date: oData.events.event[i].start_time,
         			link: oData.events.event[i].url,
-        			description: oData.events.event[i].description
+        			description: summary
         		});
             }
         });

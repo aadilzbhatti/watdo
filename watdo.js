@@ -2,9 +2,9 @@ Events = new Mongo.Collection("events");
 
 if (Meteor.isClient) {
 	Template.body.helpers({
-    	events: function() {
-			return Events.find({});
-   		}
+		events: function() {
+    		return Events.find({});
+    	}
   	});
 }
 

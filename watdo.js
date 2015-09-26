@@ -13,3 +13,23 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
+
+$.getScript("http://api.eventful.com/js/api", function eventful_search()
+{
+    var oArgs = {
+        app_key: "JLX58nsZ3JnnXS2f",
+
+        where: "Dekalb, IL",
+
+        page_size: 100,
+
+        "date": "Future",
+        
+        after_start_date: "Future",
+
+    };
+    EVDB.API.call("json/events/search", oArgs, function(oData)
+    {
+        console.log(oData);
+    });
+});

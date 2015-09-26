@@ -1,10 +1,10 @@
+Events = new Mongo.Collection("events");
+
 if (Meteor.isClient) {
   Template.body.helpers({
-    events: [
-      {text: "Event 1"},
-      {text: "Event 2"},
-      {text: "Event 3"}
-    ]
+    events: function() {
+      return Events.find({});
+    }
   });
 }
 

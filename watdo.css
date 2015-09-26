@@ -21,14 +21,14 @@ body {
   height: 100%;
   top: 100px;
   text-align: center;
-  position: fixed;
+  position: relative;
   font-family: 'Raleway';
   font-size: 25px;
 }
 
 .center .jumbo h1{
   color: #000;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   font-size: 3.0em;
 }
 
@@ -37,9 +37,9 @@ body {
   color: #000;
   margin: 20px auto;
   background: white;
-  opacity: 0.75;
+  opacity: 0.9;
   border-radius: 15px;
-  filter: alpha(opacity=40);
+  filter: alpha(opacity=90);
 }
 
 .container ul{
@@ -92,7 +92,7 @@ ul {
   position: relative;
 }
 
-li {
+.event li {
   position: relative;
   list-style: none;
   padding: 15px;
@@ -100,12 +100,12 @@ li {
   padding-bottom: 50px;
 }
 
-li .text {
+.event li .text {
   margin-left: 10px;
 }
 
 
-li.private {
+.event li.private {
   background: #eee;
   border-color: #ddd;
 }

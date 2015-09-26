@@ -28,5 +28,13 @@
 </body>
 
 <template name="event">
-  <li>{{title}} {{{description}}} <br>{{date}}</li>
+  <li>
+  	<div class="event-container">
+	  	<ul>
+		  	<li>Title: {{title}}</li>
+		  	<li>Description: {{description}}</li>
+		  	<li>Date: {{date}}</li>
+	  	</ul>
+	 </div>
+  </li>
 </template>

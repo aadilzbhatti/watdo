@@ -40,13 +40,16 @@ function eventful_search() {
 
             page_size: 100,
 
-            "date": "Future",
+            "date": "Next week",
         
             after_start_date: "Future",
+
+            sort_order: "date",
 
         };
         EVDB.API.call("json/events/search", oArgs, function(oData)
         {
+            console.log(oData);
             for (i = 0; i < oData.events.event.length; i++)
             {
         		Events.insert({

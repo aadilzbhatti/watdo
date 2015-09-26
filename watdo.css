@@ -37,7 +37,7 @@ body {
   color: #000;
   margin: 20px auto;
   background: white;
-  opacity: 0.7;
+  opacity: 0.75;
   border-radius: 15px;
   filter: alpha(opacity=40);
 }

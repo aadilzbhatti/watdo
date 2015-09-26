@@ -3,15 +3,7 @@ Events = new Mongo.Collection("events");
 if (Meteor.isClient) {
 	Template.body.helpers({
     	events: function() {
-			$.getFeed({
-				url: "events.xml",
-				success: function(feed) {
-					feed.find('item').each(function() {
-						var el = $(this);
-						console.log(el.find("title").text());
-					});
-				}
-			});
+			return Events.find({});
    		}
   	});
 }

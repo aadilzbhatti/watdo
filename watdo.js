@@ -1,4 +1,5 @@
 Events = new Mongo.Collection("events");
+// Mongo.events._ensureIndex('title', { unique: 1, sparse: 1 })
 
 if (Meteor.isClient) {
 	Template.body.helpers({
@@ -73,7 +74,7 @@ function add_static_events() {
             summary = descToSummary(el.find("description").text());
             Events.insert({
                 title: el.find("title").text(),
-                date: el.find("pubdate").text(),
+                date: el.find("pubDate").text(),
                 link: el.find("link").text(),
                 description: summary
             });

@@ -13,6 +13,18 @@ Router.route('/about', {
 })
 
 if (Meteor.isClient) {
+  Template.search.helpers({
+    events: function() {
+      Meteor.subscribe("search", Session.get("searchEvent"));
+      if (Session.get("searchEvent")) {
+        return Messages.find();
+      } else {
+        return Messages.find({});
+      }
+    }
+  });
+
+
 	Template.body.helpers({
 		events: function() {
             eventful_search();
@@ -39,16 +51,6 @@ if (Meteor.isClient) {
   	});
 
     Template.body.events({
-        "submit .search-event": function (event) {
-          event.preventDefault();
-          var text = event.target.text.value;
-          Events.find({$or: [
-            {title: text},
-            {date: text},
-            {cat: text}
-            ]
-          });
-        },
         "change .niu input": function (event) {
             Session.set("showNiu", event.target.checked);
         },
@@ -62,9 +64,22 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
+  Messages._ensureIndex({
+    "title": "text",
+    "value": "text"
+  });
 	Meteor.startup(function () {
         //var twitter = get_twitter();
 	});
+  Meteor.publish("search", function(searchEvent) {
+    if (!searchEvent) {
+      return Events.find({});
+    }
+    return Events.find(
+      { $title: {$search: searchValue} }
+    );
+  });
+
 }
 
 function descToSummary(fullDescription) {

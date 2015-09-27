@@ -49,7 +49,7 @@ function eventful_search() {
     });
     $.getScript("http://api.eventful.com/js/api", function() {
         var oArgs = {
-            app_key: items["evenful_api_key"],
+            app_key: items["eventful_api_key"],
             where: "Dekalb, IL",
             page_size: 100,
             "date": "Next week",

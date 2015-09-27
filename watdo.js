@@ -12,19 +12,7 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	Meteor.startup(function () {
-        // var items = {};
-        // $.getJSON("secret.json", function(data) {
-        //     $.each(data, function(key, val) {
-        //         items[key] = val;
-        //     });
-        // });
-        // var Twit = Meteor.npmRequire('twit');
-        // var T = new Twit({
-        //     consumer_key: items["consumer_key"],
-        //     consumer_secret: items["consumer_secret"],
-        //     access_token: items["access_token"],
-        //     access_token_secret: items["access_token_secret"]
-        // });
+        var twitter = get_twitter();
 	});
 }
 

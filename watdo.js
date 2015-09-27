@@ -12,7 +12,7 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	Meteor.startup(function () {
-        // var twitter = get_twitter;
+        //var twitter = get_twitter();
 	});
 }
 

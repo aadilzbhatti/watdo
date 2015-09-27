@@ -39,6 +39,16 @@ if (Meteor.isClient) {
   	});
 
     Template.body.events({
+        "submit .search-event": function (event) {
+          event.preventDefault();
+          var text = event.target.text.value;
+          Events.find({$or: [
+            {title: text},
+            {date: text},
+            {cat: text}
+            ]
+          });
+        },
         "change .niu input": function (event) {
             Session.set("showNiu", event.target.checked);
         },

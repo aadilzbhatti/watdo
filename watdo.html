@@ -17,8 +17,17 @@
 		<div class="jumbo">
 			<h1>watdo?</h1>
 		</div>
+		<div class="checks">
+			<div>
+			  <input id="niu" type="checkbox" />
+			  <label for="niu">NIU</label>
+			  <input id="concert" type="checkbox" />
+			  <label for="concert">Community</label>
+			  <input id="community" type="checkbox" />
+			  <label for="community">Concerts</label>
+			</div>
+		</div>
 	</div>
-
 
 	<div class="container">
 		<header>
@@ -36,17 +45,21 @@
 
 <template name="event">
 	<div class="event">
-		<li>
-		  	<div class="subevent">
+        <table>
+            <tr>
+            <td width="25%">
                 <img src={{picture}} alt="picture">
-		            <ul>
-				  	    <li><b>Title:</b> {{{title}}}</li>
-				  	    <li><b>Description:</b> {{{description}}}</li>
-				  	    <li><b>Date:</b> {{{date}}}</li>
-				  	    <li><b><a href="{{link}}">Link</a></b></li>
-			  	    </ul>
-		  	</div>
-		  <hr>
-		</li>
+            </td>
+            <td width="75%">
+		        <ul>
+				  	<li><b>Title:</b> {{{title}}}</li>
+				  	<li><b>Description:</b> {{{description}}}</li>
+				  	<li><b>Date:</b> {{{date}}}</li>
+				  	<li><b><a href="{{link}}">Link</a></b></li>
+			  	</ul>
+            </td>
+            </tr>
+        </table>
+        <hr>
   	</div>
 </template>

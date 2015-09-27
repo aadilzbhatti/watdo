@@ -95,24 +95,27 @@ function eventful_search() {
             {
                 var summary = descToSummary(oData.events.event[i].description);
                 if (oData.events.event[i].image != null) {
-        		    Events.insert({
-        			    title: oData.events.event[i].title,
-        			    date: oData.events.event[i].start_time,
-        			    link: oData.events.event[i].url,
-        			    description: summary,
-                        picture: oData.events.event[i].image.block250.url,
-                        category: "concerts"
-        		    });
+        		    if (Events.find({title: oData.events.event[i].title}).count() == 0) {
+                        Events.insert({
+                            title: oData.events.event[i].title,
+                            date: oData.events.event[i].start_time,
+                            link: oData.events.event[i].url,
+                            description: summary,
+                            picture: oData.events.event[i].image.block250.url,
+                            category: "concerts"
+                        });
+                    }
                 } else {
-        		    Events.insert({
-        			    title: oData.events.event[i].title,
-        			    date: oData.events.event[i].start_time,
-        			    link: oData.events.event[i].url,
-                        cat: Eventify,
-        			    description: summary,
-                        picture: "stock.jpg",
-                        category: "concerts"
-        		    });
+                    if (Events.find({title: oData.events.event[i].title}).count() == 0) {
+                        Events.insert({
+                            title: oData.events.event[i].title,
+                            date: oData.events.event[i].start_time,
+                            link: oData.events.event[i].url,
+                            description: summary,
+                            picture: "stock.jpg",
+                            category: "concerts"
+        		      });
+                    }
                 }
             }
         });

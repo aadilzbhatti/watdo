@@ -11,14 +11,9 @@ Router.route('/about', {
 if (Meteor.isClient) {
   Template.home.helpers({
         events: function() {
-        eventful_search();
-        add_static_events();
-        return Events.find({});
-    }
-  });
-	Template.body.helpers({
-		events: function() {
-            eventful_search();
+          eventful_search();
+          add_static_events();
+          eventful_search();
             add_static_events();
             if (Session.get("showNiu")) {
                 console.log("in sesh get show niu");
@@ -30,7 +25,7 @@ if (Meteor.isClient) {
             } else {
                 return Events.find({});
             }
-    	},
+        },
         showNiu: function() {
             console.log("in show niu")
             return Session.get("showNiu");
@@ -41,9 +36,9 @@ if (Meteor.isClient) {
         showConcerts: function() {
             return Session.get("showConcerts");
         }
-  	});
+  });
 
-    Template.body.events({
+    Template.home.events({
         "change .niu input": function(event) {
             console.log(event.target.checked);
             Session.set("showNiu", event.target.checked);

@@ -47,9 +47,9 @@ body {
   color: #000;
   margin: 20px auto;
   background: white;
-  opacity: 0.7;
+  opacity: 0.8;
   border-radius: 15px;
-  filter: alpha(opacity=40);
+  filter: alpha(opacity=0.8);
 }
 
 .container header {
@@ -63,57 +63,20 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-.new-task input {
-  box-sizing: border-box;
-  padding: 10px 0;
-  background: transparent;
-  border: none;
-  width: 100%;
-  padding-right: 80px;
-  font-size: 1em;
-}
-
-.new-task input:focus{
-  outline: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  background: white;
-}
-
-.delete {
-  float: right;
-  font-weight: bold;
-  background: none;
-  font-size: 1em;
-  border: none;
-  position: relative;
-}
-
 .event li {
   position: relative;
   list-style: none;
-  padding: 15px;
-  border-bottom: #eee solid 1px;
-  padding-bottom: 50px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .event li .text {
   margin-left: 10px;
-}
 
-
-.event li.private {
-  background: #eee;
-  border-color: #ddd;
 }
 
 header .hide-completed {
   float: right;
-}
-
-.toggle-private {
-  margin-left: 5px;
 }

@@ -73,7 +73,6 @@ function add_static_events() {
         'honors-icc.xml'
     ];
     feeds.forEach(function(entry) {
-        console.log(entry);
         $.get(entry, function (data) {
             $(data).find("item").each(function () {
                 var el = $(this);

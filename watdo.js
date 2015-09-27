@@ -34,11 +34,8 @@ function eventful_search() {
             app_key: "JLX58nsZ3JnnXS2f",
             where: "Dekalb, IL",
             page_size: 100,
-
             "date": "Next week",
-        
             after_start_date: "Future",
-
             sort_order: "date",
         };
         EVDB.API.call("json/events/search", oArgs, function(oData) {

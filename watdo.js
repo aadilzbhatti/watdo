@@ -77,6 +77,7 @@ function eventful_search() {
         			    title: oData.events.event[i].title,
         			    date: oData.events.event[i].start_time,
         			    link: oData.events.event[i].url,
+                  cat: Eventify,
         			    description: summary,
         		    });
                 }
@@ -87,10 +88,10 @@ function eventful_search() {
 
 function add_static_events() {
     feeds = [
-        'events.xml',
-        'cob.xml', 
-        'honors-capstone.xml', 
-        'honors-icc.xml'
+        'events.xml'//,
+        // 'cob.xml', 
+        // 'honors-capstone.xml', 
+        // 'honors-icc.xml'
     ];
     feeds.forEach(function(entry) {
         $.get(entry, function (data) {
@@ -102,6 +103,7 @@ function add_static_events() {
                         title: el.find("title").text(),
                         date: el.find("pubDate").text(),
                         link: el.find("link").text(),
+                        cat: "Dekalb",
                         description: summary
                     });
                 }

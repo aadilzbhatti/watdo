@@ -29,14 +29,18 @@ if (Meteor.isServer) {
 }
 
 function descToSummary(fullDescription) {
-    dArray = fullDescription.split(" ");
     summary = "";
-    if(dArray.length >= 15) {
-        for(j = 0; j <  15; j++) {
-            summary += " " + dArray[j];
-        }
-    } else return fullDescription;
-    summary += "...";
+    if (fullDescription != null && fullDescription != " <br> ") {
+        dArray = fullDescription.split(" ");
+        if(dArray.length >= 15) {
+            for(j = 0; j <  15; j++) {
+                summary += " " + dArray[j];
+            }
+        } else return fullDescription;
+        summary += "...";
+    }
+    else
+        summary = "No description available.";
     return summary;
 }
 
@@ -46,7 +50,6 @@ function eventful_search() {
         $.each(data, function(key, val) {
             items[key] = val;
         });
-        console.log(data);
     });
     $.getScript("http://api.eventful.com/js/api", function() {
         var oArgs = {
@@ -58,7 +61,6 @@ function eventful_search() {
             sort_order: "date",
             image_sizes: "block250",
         };
-        console.log(oArgs.app_key);
         EVDB.API.call("json/events/search", oArgs, function(oData) {
             console.log(oData);
             for (i = 0; i < oData.events.event.length; i++)
@@ -78,6 +80,7 @@ function eventful_search() {
         			    date: oData.events.event[i].start_time,
         			    link: oData.events.event[i].url,
         			    description: summary,
+                        picture: "stock.jpg",
         		    });
                 }
             }

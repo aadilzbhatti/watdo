@@ -22,7 +22,7 @@ if (Meteor.isClient) {
             } else if (Session.get("showCommunity")) {
                 return Events.find({category: "community"});
             } else if (Session.get("showConcerts")) {
-                return Events.find({category: "concert"});
+                return Events.find({category: "concerts"});
             } else {
                 return Events.find({});
             }
@@ -43,7 +43,7 @@ if (Meteor.isClient) {
             Session.set("showNiu", event.target.checked);
         },
         "change .concert input": function(event) {
-            Session.set("showConcert", event.target.checked);
+            Session.set("showConcerts", event.target.checked);
         },
         "change .community input": function(event) {
             Session.set("showCommunity", event.target.checked);

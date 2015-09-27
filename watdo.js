@@ -1,6 +1,6 @@
 Events = new Mongo.Collection("events");
 
-Router.route('/events', {
+Router.route('/', {
     events: function() {
         eventful_search();
         add_static_events();
@@ -46,6 +46,7 @@ function eventful_search() {
         $.each(data, function(key, val) {
             items[key] = val;
         });
+        console.log(data);
     });
     $.getScript("http://api.eventful.com/js/api", function() {
         var oArgs = {

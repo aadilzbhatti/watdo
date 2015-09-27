@@ -52,6 +52,10 @@ body {
   border-radius: 15px;
   transition: .3s background-color;
 }
+
+img {
+  max-width: 100%;
+}
  
 .nav a:hover {
   background-color: #000;

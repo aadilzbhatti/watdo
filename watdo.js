@@ -148,3 +148,8 @@ function add_static_events() {
         });
     });
 }
+
+// function eventSearch() {
+//     var query = document.getElementById("search").value;
+    
+// }

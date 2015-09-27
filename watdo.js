@@ -45,6 +45,7 @@ function eventful_search() {
     $.getJSON("secret.json", function(data) {
         $.each(data, function(key, val) {
             items[key] = val;
+            console.log("key" + key);
         });
     });
     $.getScript("http://api.eventful.com/js/api", function() {

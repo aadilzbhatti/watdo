@@ -134,12 +134,14 @@ function add_static_events() {
         $.get(entry, function (data) {
             $(data).find("item").each(function () {
                 var el = $(this);
+                console.log(el);
                 var summary = descToSummary(el.find("description").text());
                 if (Events.find({title: el.find("title").text()}).count() == 0) {
                     Events.insert({
                         title: el.find("title").text(),
                         date: el.find("pubDate").text(),
                         link: el.find("link").text(),
+                        picture: "stock.jpg",
                         description: summary,
                         category: entry == 'events.xml' ? 'community' : 'niu'
                     });

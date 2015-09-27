@@ -26,3 +26,4 @@ percolate:paginated-subscription
 alethes:pages
 iron:router
 ejson
+momentjs:moment

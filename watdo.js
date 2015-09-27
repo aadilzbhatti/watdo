@@ -121,10 +121,10 @@ function eventful_search() {
 
 function add_static_events() {
     feeds = [
-        'events.xml'//,
-        // 'cob.xml', 
-        // 'honors-capstone.xml', 
-        // 'honors-icc.xml'
+        'events.xml',
+        'cob.xml', 
+        'honors-capstone.xml', 
+        'honors-icc.xml'
     ];
     feeds.forEach(function(entry) {
         $.get(entry, function (data) {

@@ -14,7 +14,6 @@ if (Meteor.isClient) {
             eventful_search();
             add_static_events();
             if (Session.get("showNiu")) {
-                console.log("in sesh get show niu");
                 return Events.find({category: "niu"});
             } else if (Session.get("showCommunity")) {
                 return Events.find({category: "community"});
@@ -25,7 +24,6 @@ if (Meteor.isClient) {
             }
         },
         showNiu: function() {
-            console.log("in show niu")
             return Session.get("showNiu");
         },
         showCommunity: function() {
@@ -38,7 +36,6 @@ if (Meteor.isClient) {
 
     Template.home.events({
         "change .niu input": function(event) {
-            console.log(event.target.checked);
             Session.set("showNiu", event.target.checked);
         },
         "change .concert input": function(event) {

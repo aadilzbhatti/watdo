@@ -1,9 +1,9 @@
 body {
   font-family: sans-serif;
-  background-color: #315481;
+  background-color: #315481;  position: absolute;
+
   background-image: url("http://www.cityofdekalb.com/images/CivicAlerts/1/DCCVB-20120805-Dynamic-101%20JS.jpg");
   background-attachment: absolute;
-  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -13,7 +13,9 @@ body {
   margin: 0;
 
   font-size: 14px;
-}
+  height: 100%;
+/*  overflow: hidden;
+*/}
 
 #bg {
   position: fixed; 
@@ -213,7 +215,9 @@ input:focus + .fa{
 .container header h1 {
   padding-top: 20px;
   padding-left: 20px;
+  padding-bottom: 0px;
   font-family: 'Raleway', sans-serif;
+  max-width: 100%;
 }
 
 .event li {
@@ -227,6 +231,16 @@ input:focus + .fa{
 
 .event li .text {
   margin-left: 10px;
+}
+
+.scrollable {
+  position: absolute;
+  top: 600px;
+  bottom: 0px;
+  height: 100%;
+  width: 77.4%;
+  overflow-y:auto;
+  border: 1px solid green;
 }
 
 input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }

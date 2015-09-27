@@ -3,17 +3,11 @@ Events = new Mongo.Collection("events");
 if (Meteor.isClient) {
 	Template.body.helpers({
 		events: function() {
+            eventful_search();
             add_static_events();
     		return Events.find({});
     	}
   	});
-
-    Template.body.helpers({
-        events: function() {
-            eventful_search();
-            return Events.find({});
-        }
-  });
 }
 
 if (Meteor.isServer) {

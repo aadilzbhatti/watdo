@@ -1,5 +1,17 @@
 Events = new Mongo.Collection("events");
 
+Router.route('/events', {
+    events: function() {
+        eventful_search();
+        add_static_events();
+        return Events.find({})
+    }
+});
+
+Router.route('/about', {
+    template: 'about'
+})
+
 if (Meteor.isClient) {
 	Template.body.helpers({
 		events: function() {

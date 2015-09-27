@@ -11,9 +11,7 @@ Router.route('/about', {
 if (Meteor.isClient) {
   Template.home.helpers({
         events: function() {
-          eventful_search();
-          add_static_events();
-          eventful_search();
+            eventful_search();
             add_static_events();
             if (Session.get("showNiu")) {
                 console.log("in sesh get show niu");

@@ -8,7 +8,7 @@
 <body>
 	<div class="nav">
 		<ul>
-			<li><a href="/events">Home</a></li>
+			<li><a href="/">Home</a></li>
 			<li><a href="/about">About</a></li>
 		</ul>
 	</div>
@@ -19,12 +19,18 @@
 		</div>
 		<div class="checks">
 			<div>
-			  <input id="niu" type="checkbox" />
-			  <label for="niu">NIU</label>
-			  <input id="concert" type="checkbox" />
-			  <label for="concert">Community</label>
-			  <input id="community" type="checkbox" />
-			  <label for="community">Concerts</label>
+				<label class="niu">
+					<input type="checkbox" checked="{{showNiu}}"/>
+					NIU
+				</label>
+				<label class="concert">
+					<input type="checkbox" checked="{{showConcert}}"/>
+					Concerts
+				</label>
+				<label class="community">
+					<input type="checkbox" checked="{{showCommunity}}"/>
+					Community
+				</label>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,4 @@
 Events = new Mongo.Collection("events");
-// Mongo.events._ensureIndex('title', { unique: 1, sparse: 1 })
 
 if (Meteor.isClient) {
 	Template.body.helpers({
@@ -60,7 +59,8 @@ function eventful_search() {
         			title: oData.events.event[i].title,
         			date: oData.events.event[i].start_time,
         			link: oData.events.event[i].url,
-        			description: summary
+        			description: summary,
+                    picture: oData.events.event[i].image
         		});
             }
         });

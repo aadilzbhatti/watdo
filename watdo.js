@@ -29,9 +29,15 @@ function descToSummary(fullDescription) {
 }
 
 function eventful_search() {
+    var items = {};
+    $.getJSON("secret.json", function(data) {
+        $.each(data, function(key, val) {
+            items[key] = val;
+        });
+    });
     $.getScript("http://api.eventful.com/js/api", function() {
         var oArgs = {
-            app_key: "JLX58nsZ3JnnXS2f",
+            app_key: items["evenful_api_key"],
             where: "Dekalb, IL",
             page_size: 100,
             "date": "Next week",
@@ -39,6 +45,7 @@ function eventful_search() {
             sort_order: "date",
             image_sizes: "block250",
         };
+        console.log(oArgs.app_key);
         EVDB.API.call("json/events/search", oArgs, function(oData) {
             console.log(oData);
             for (i = 0; i < oData.events.event.length; i++)
@@ -77,7 +84,7 @@ function add_static_events() {
             $(data).find("item").each(function () {
                 var el = $(this);
                 var summary = descToSummary(el.find("description").text());
-                if (!db.find({title: el.find("title").text()})) {
+                if (Events.find({title: el.find("title").text()}).count() > 0) {
                     Events.insert({
                         title: el.find("title").text(),
                         date: el.find("pubDate").text(),

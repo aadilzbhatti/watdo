@@ -23,6 +23,7 @@ var get_twitter = function() {
 	    "access_token_secret": items["access_token_secret"],
 	    "callBackUrl": "XXX"
 	};
+	console.log(config);
 
 	var twitter = new Twitter(config);
 	return twitter;

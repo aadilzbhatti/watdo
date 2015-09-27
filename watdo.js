@@ -1,4 +1,5 @@
 Events = new Mongo.Collection("events");
+// Mongo.events._ensureIndex('title', { unique: 1, sparse: 1 })
 
 if (Meteor.isClient) {
 	Template.body.helpers({
@@ -12,32 +13,32 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	Meteor.startup(function () {
-     // var Twit = Meteor.npmRequire('twit');
-     //    var items = {};
-     //    $.getJSON("secret.json", function(data) {
-     //        $.each(data, function(key, val) {
-     //            items[key] = val;
-     //        });
-     //    });
-     //    var T = new Twit({
-     //        consumer_key: items["consumer_key"],
-     //        consumer_secret: items["consumer_secret"],
-     //        access_token: items["access_token"],
-     //        access_token_secret: items["access_token_secret"]
-     //    });
+        // var items = {};
+        // $.getJSON("secret.json", function(data) {
+        //     $.each(data, function(key, val) {
+        //         items[key] = val;
+        //     });
+        // });
+        // var Twit = Meteor.npmRequire('twit');
+        // var T = new Twit({
+        //     consumer_key: items["consumer_key"],
+        //     consumer_secret: items["consumer_secret"],
+        //     access_token: items["access_token"],
+        //     access_token_secret: items["access_token_secret"]
+        // });
 	});
 }
 
 function descToSummary(fullDescription) {
-  dArray = fullDescription.split(" ");
-  summary = "";
-  if(dArray.length >= 15) {
-    for(j = 0; j <  15; j++) {
-      summary += " " + dArray[j];
+    dArray = fullDescription.split(" ");
+    summary = "";
+    if(dArray.length >= 15) {
+        for(j = 0; j <  15; j++) {
+            summary += " " + dArray[j];
+        }
     }
-  }
-  summary += "...";
-  return summary;
+    summary += "...";
+    return summary;
 }
 
 function eventful_search() {
@@ -73,7 +74,7 @@ function add_static_events() {
             var summary = descToSummary(el.find("description").text());
             Events.insert({
                 title: el.find("title").text(),
-                date: el.find("pubdate").text(),
+                date: el.find("pubDate").text(),
                 link: el.find("link").text(),
                 description: summary
             });

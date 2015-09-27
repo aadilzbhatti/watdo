@@ -1,55 +1,57 @@
-<head>
-  <title>watdo</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-</head>
+<template name="home">
+	<head>
+	  <title>watdo</title>
+	  <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro" rel="stylesheet" type="text/css">
+	  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
 
-<body>
-	<div class="nav">
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/about">About</a></li>
-		</ul>
-	</div>
-
-	<div class="center">
-		<div class="jumbo">
-			<div class="checks">
-				<label class="niu">
-					<input type="checkbox" checked="{{showNiu}}" />
-					NIU
-				</label>
-				<label class="concert">
-					<input type="checkbox" checked="{{showConcerts}}" />
-					Concerts
-				</label>
-				<label class="community">
-					<input type="checkbox" checked="{{showCommunity}}" />
-					Community
-				</label>
-			</div>
-			<h1>watdo?</h1>
-			<div class="searchBox">
-	      		<input type="search" id="search" placeholder="Wat you wanna do?" />
-				<span class="fa fa-search search-icon"></span>
-	  		</div>
-			<div class="btn search">Search</div>
+	<body>
+		<div class="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+			</ul>
 		</div>
-	</div>
 
-	<div class="container">
-		<header>
-			<h1>Events:</h1>
-			<hr>
-		</header>
-		<ul>
-			{{#each events}}
-				{{> event}}
-			{{/each}}
-		</ul>
-	</div>
-</body>
+		<div class="center">
+			<div class="jumbo">
+				<div class="checks">
+					<label class="niu">
+						<input type="checkbox" checked="{{showNiu}}" />
+						NIU
+					</label>
+					<label class="concert">
+						<input type="checkbox" checked="{{showConcerts}}" />
+						Concerts
+					</label>
+					<label class="community">
+						<input type="checkbox" checked="{{showCommunity}}" />
+						Community
+					</label>
+				</div>
+				<h1>watdo?</h1>
+				<div class="searchBox">
+		      		<input type="search" id="search" placeholder="Wat you wanna do?" />
+					<span class="fa fa-search search-icon"></span>
+		  		</div>
+				<div class="btn search">Search</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<header>
+				<h1>Events:</h1>
+				<hr>
+			</header>
+			<ul>
+				{{#each events}}
+					{{> event}}
+				{{/each}}
+			</ul>
+		</div>
+	</body>
+</template>
 
 <template name="event">
 	<div class="event">

@@ -6,16 +6,24 @@
 	</head>
 
 	<body>
+		<img src="team.jpg" id="bg" alt="">
 		<div class="nav">
 			<ul>
-				<li><a href="/events">Home</a></li>
+				<li><a href="/">Home</a></li>
 				<li><a href="/about">About</a></li>
 			</ul>
 		</div>
 
+		<ul>
+			{{#each about}}
+				{{> about}}
+			{{/each}}
+		</ul>
+
 		<div class="center">
-			<div class="jumbo">
+			<div class="jumbo2">
 				<h1>The Team</h1>
+				<h3>Watdo was created by Aadil Bhatti, Daniel Margosian, and Jackson Davis during Huskie Hack 2015. This project was made to address the difficulties in finding local community events offered through all nearby organizations. The project was made using the Meteor.js framework. This project is opensource, and can be found here <a href="https://github.com/prevosis/watdo">https://github.com/prevosis/watdo</a></h3>
 			</div>
 		</div>
 	</body>

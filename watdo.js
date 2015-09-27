@@ -4,6 +4,17 @@ if (Meteor.isClient) {
   Template.body.helpers({
     events: function() {
         eventful_search();
+        $.get("events.xml", function (data) {
+            $(data).find("item").each(function () { // or "item" or whatever suits your feed
+                var el = $(this);
+                var result = {
+                    title: el.find("title").text(),
+                    date: el.find("pubdate").text(),
+                    link: el.find("link").text(),
+                    description: el.find("description").text()
+                };
+            });
+        });
       	return Events.find({});
     }
   });

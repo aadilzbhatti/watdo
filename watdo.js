@@ -94,7 +94,7 @@ function eventful_search() {
         		    if (Events.find({title: oData.events.event[i].title}).count() == 0) {
                         Events.insert({
                             title: oData.events.event[i].title,
-                            date: oData.events.event[i].start_time,
+                            date: Date.parse(oData.events.event[i].start_time),
                             link: oData.events.event[i].url,
                             description: summary,
                             picture: oData.events.event[i].image.block250.url,
@@ -105,7 +105,7 @@ function eventful_search() {
                     if (Events.find({title: oData.events.event[i].title}).count() == 0) {
                         Events.insert({
                             title: oData.events.event[i].title,
-                            date: oData.events.event[i].start_time,
+                            date: Date.parse(oData.events.event[i].start_time),
                             link: oData.events.event[i].url,
                             description: summary,
                             picture: "stock.jpg",
@@ -134,7 +134,7 @@ function add_static_events() {
                 if (Events.find({title: el.find("title").text()}).count() == 0) {
                     Events.insert({
                         title: el.find("title").text(),
-                        date: el.find("pubDate").text(),
+                        date: Date.parse(el.find("pubDate").text()),
                         link: el.find("link").text(),
                         picture: "stock.jpg",
                         description: summary,

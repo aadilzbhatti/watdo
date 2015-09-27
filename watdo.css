@@ -220,7 +220,7 @@ input:focus + .fa{
 }
 
 .event li {
-  position: relative;
+  position: static;
   list-style: none;
   padding-top: 5px;
   padding-bottom: 10px;
@@ -239,7 +239,7 @@ input:focus + .fa{
   height: 100%;
   width: 77.4%;
   overflow-y:auto;
-  border: 1px solid green;
+  border: 1px solid black;
 }
 
 input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }

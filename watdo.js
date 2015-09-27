@@ -12,7 +12,7 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	Meteor.startup(function () {
-    	// var Twit = Meteor.npmRequire('twit');
+     // var Twit = Meteor.npmRequire('twit');
      //    var items = {};
      //    $.getJSON("secret.json", function(data) {
      //        $.each(data, function(key, val) {
@@ -26,6 +26,18 @@ if (Meteor.isServer) {
      //        access_token_secret: items["access_token_secret"]
      //    });
 	});
+}
+
+function descToSummary(fullDescription) {
+  dArray = fullDescription.split(" ");
+  summary = "";
+  if(dArray.length >= 15) {
+    for(j = 0; j <  15; j++) {
+      summary += " " + dArray[j];
+    }
+  }
+  summary += "...";
+  return summary;
 }
 
 function eventful_search() {
@@ -42,15 +54,7 @@ function eventful_search() {
             console.log(oData);
             for (i = 0; i < oData.events.event.length; i++)
             {
-              fullDescription = oData.events.event[i].description;
-              dArray = fullDescription.split(" ");
-              summary = "";
-              if(dArray.length >= 15) {
-                for(j = 0; j <  15; j++) {
-                  summary += " " + dArray[j];
-                }
-              }
-              summary += "...";
+            summary= descToSummary(oData.events.event[i].description);
         		Events.insert({
         			title: oData.events.event[i].title,
         			date: oData.events.event[i].start_time,
@@ -66,11 +70,12 @@ function add_static_events() {
     $.get("events.xml", function (data) {
         $(data).find("item").each(function () {
             var el = $(this);
+            summary = descToSummary(el.find("description").text());
             Events.insert({
                 title: el.find("title").text(),
                 date: el.find("pubdate").text(),
                 link: el.find("link").text(),
-                description: el.find("description").text()
+                description: summary
             });
         });
     });

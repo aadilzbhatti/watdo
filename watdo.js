@@ -54,7 +54,7 @@ function eventful_search() {
             console.log(oData);
             for (i = 0; i < oData.events.event.length; i++)
             {
-            summary= descToSummary(oData.events.event[i].description);
+            var summary = descToSummary(oData.events.event[i].description);
         		Events.insert({
         			title: oData.events.event[i].title,
         			date: oData.events.event[i].start_time,
@@ -71,7 +71,7 @@ function add_static_events() {
     $.get("events.xml", function (data) {
         $(data).find("item").each(function () {
             var el = $(this);
-            summary = descToSummary(el.find("description").text());
+            var summary = descToSummary(el.find("description").text());
             Events.insert({
                 title: el.find("title").text(),
                 date: el.find("pubDate").text(),

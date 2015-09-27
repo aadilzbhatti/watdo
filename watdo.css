@@ -16,6 +16,59 @@ body {
   font-size: 14px;
 }
 
+.nav ul {
+  list-style: none;
+  background-color: #000;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  border-radius: 15px;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #000;
+}
+ 
+.nav a.active {
+  background-color: #000;
+  color: #444;
+  cursor: default;
+}
+ 
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+ 
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+}
+
 .center .jumbo{
   width: 100%;
   height: 100%;
@@ -39,7 +92,6 @@ body {
   background: white;
   opacity: 0.9;
   border-radius: 15px;
-  filter: alpha(opacity=90);
 }
 
 .container ul{
@@ -49,7 +101,6 @@ body {
   background: white;
   opacity: 0.8;
   border-radius: 15px;
-  filter: alpha(opacity=0.8);
 }
 
 .container header {

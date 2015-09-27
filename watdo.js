@@ -1,5 +1,4 @@
 Events = new Mongo.Collection("events");
-// Mongo.events._ensureIndex('title', { unique: 1, sparse: 1 })
 
 if (Meteor.isClient) {
 	Template.body.helpers({

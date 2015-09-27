@@ -2,7 +2,7 @@
   <title>watdo</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-  <script src="twitter.js"></script>
+  <script src="server/twitter.js"></script>
 </head>
 
 <body>
@@ -26,11 +26,17 @@
 			<hr>
 		</header>
 
+		<button id="prev">Previous</button>
+		<button id="next">Next</button>
+
 		<ul>
 			{{#each events}}
 				{{> event}}
 			{{/each}}
 		</ul>
+
+		<button id="prev">Previous</button>
+		<button id="next">Next</button>
 	</div>
 </body>
 

@@ -12,7 +12,7 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	Meteor.startup(function () {
-        var twitter = get_twitter();
+        // var twitter = get_twitter;
 	});
 }
 
@@ -23,7 +23,7 @@ function descToSummary(fullDescription) {
         for(j = 0; j <  15; j++) {
             summary += " " + dArray[j];
         }
-    }
+    } else return fullDescription;
     summary += "...";
     return summary;
 }
@@ -66,15 +66,26 @@ function eventful_search() {
 }
 
 function add_static_events() {
-    $.get("events.xml", function (data) {
-        $(data).find("item").each(function () {
-            var el = $(this);
-            var summary = descToSummary(el.find("description").text());
-            Events.insert({
-                title: el.find("title").text(),
-                date: el.find("pubDate").text(),
-                link: el.find("link").text(),
-                description: summary
+    feeds = [
+        'events.xml',
+        'cob.xml', 
+        'honors-capstone.xml', 
+        'honors-icc.xml'
+    ];
+    feeds.forEach(function(entry) {
+        console.log(entry);
+        $.get(entry, function (data) {
+            $(data).find("item").each(function () {
+                var el = $(this);
+                var summary = descToSummary(el.find("description").text());
+                if (!db.find({title: el.find("title").text()})) {
+                    Events.insert({
+                        title: el.find("title").text(),
+                        date: el.find("pubDate").text(),
+                        link: el.find("link").text(),
+                        description: summary
+                    });
+                }
             });
         });
     });

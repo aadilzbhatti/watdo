@@ -1,4 +1,4 @@
-function get_twitter() {
+var get_twitter = function() {
 	var error = function (err, response, body) {
 		console.log('ERROR [%s]', err);
 	};

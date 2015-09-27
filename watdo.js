@@ -17,6 +17,13 @@ if (Meteor.isClient) {
     		return Events.find({});
     	}
   	});
+
+  Template.body.helpers({
+    events: function() {
+        eventful_search();
+      	return Events.find({});
+    }
+  });
 }
 
 if (Meteor.isServer) {
@@ -43,11 +50,33 @@ function eventful_search() {
             app_key: "JLX58nsZ3JnnXS2f",
             where: "Dekalb, IL",
             page_size: 100,
-            "date": "Future",
+
+            "date": "Next week",
+        
             after_start_date: "Future",
+
+            sort_order: "date",
         };
         EVDB.API.call("json/events/search", oArgs, function(oData) {
             console.log(oData);
+            for (i = 0; i < oData.events.event.length; i++)
+            {
+              fullDescription = oData.events.event[i].description;
+              dArray = fullDescription.split(" ");
+              summary = "";
+              if(dArray.length >= 15) {
+                for(j = 0; j <  15; j++) {
+                  summary += " " + dArray[j];
+                }
+              }
+              summary += "...";
+        		Events.insert({
+        			title: oData.events.event[i].title,
+        			date: oData.events.event[i].start_time,
+        			link: oData.events.event[i].url,
+        			description: summary
+        		});
+            }
         });
     });
 }

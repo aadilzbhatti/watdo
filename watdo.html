@@ -1,6 +1,8 @@
 <head>
   <title>watdo</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
@@ -13,7 +15,8 @@
 
 	<div class="container">
 		<header>
-			<h1>Events</h1>
+			<h1>Events:</h1>
+			<hr>
 		</header>
 
 		<ul>
@@ -26,9 +29,12 @@
 
 <template name="event">
   <li>
-  	<span class="title">{{title}}</span>
-  	<span class="date">{{date}}</span>
-  	<span class="link">{{link}}</span>
-  	<span class="description">{{description}}</span>
+  	<div class="event-container">
+	  	<ul>
+		  	<li>Title: {{title}}</li>
+		  	<li>Description: {{description}}</li>
+		  	<li>Date: {{date}}</li>
+	  	</ul>
+	 </div>
   </li>
 </template>

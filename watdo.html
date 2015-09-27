@@ -16,27 +16,27 @@
 	<div class="center">
 		<div class="jumbo">
 			<h1>watdo?</h1>
-	  		<div class="searchBox">
+			<div class="checks">
+				<div>
+					<label class="niu">
+						<input type="checkbox" checked="{{showNiu}}"/>
+						NIU
+					</label>
+					<label class="concert">
+						<input type="checkbox" checked="{{showConcert}}"/>
+						Concerts
+					</label>
+					<label class="community">
+						<input type="checkbox" checked="{{showCommunity}}"/>
+						Community
+					</label>
+				</div>
+			</div>
+			<div class="searchBox">
 	      		<input type="search" id="search" placeholder="Wat you wanna do?" />
 				<span class="fa fa-search search-icon"></span>
 	  		</div>
 			<div class="btn search">Search</div>
-			<div class="checks">
-			<div>
-				<label class="niu">
-					<input type="checkbox" checked="{{showNiu}}"/>
-					NIU
-				</label>
-				<label class="concert">
-					<input type="checkbox" checked="{{showConcert}}"/>
-					Concerts
-				</label>
-				<label class="community">
-					<input type="checkbox" checked="{{showCommunity}}"/>
-					Community
-				</label>
-			</div>
-		</div>
 		</div>
 	</div>
 
@@ -45,7 +45,6 @@
 			<h1>Events:</h1>
 			<hr>
 		</header>
-
 		<ul>
 			{{#each events}}
 				{{> event}}

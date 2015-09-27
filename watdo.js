@@ -3,44 +3,34 @@ Events = new Mongo.Collection("events");
 if (Meteor.isClient) {
 	Template.body.helpers({
 		events: function() {
-            $.get("events.xml", function (data) {
-                $(data).find("item").each(function () { // or "item" or whatever suits your feed
-                    var el = $(this);
-                    Events.insert({
-                        title: el.find("title").text(),
-                        date: el.find("pubdate").text(),
-                        link: el.find("link").text(),
-                        description: el.find("description").text()
-                    });
-                });
-            });
+            add_static_events();
     		return Events.find({});
     	}
   	});
 
-  Template.body.helpers({
-    events: function() {
-        eventful_search();
-      	return Events.find({});
-    }
+    Template.body.helpers({
+        events: function() {
+            eventful_search();
+            return Events.find({});
+        }
   });
 }
 
 if (Meteor.isServer) {
 	Meteor.startup(function () {
- //    	var Twit = Meteor.npmRequire('twit');
- //        var items = {};
- // //        $.getJSON("secret.json", function(data) {
- // //            $.each(data, function(key, val) {
- // //                items[key] = val;
- // //            });
- // //        });
- // //        var T = new Twit({
- // //            consumer_key: items["consumer_key"],
- // //            consumer_secret: items["consumer_secret"],
- // //            access_token: items["access_token"],
- // //            access_token_secret: items["access_token_secret"]
- // //        });
+    	// var Twit = Meteor.npmRequire('twit');
+     //    var items = {};
+     //    $.getJSON("secret.json", function(data) {
+     //        $.each(data, function(key, val) {
+     //            items[key] = val;
+     //        });
+     //    });
+     //    var T = new Twit({
+     //        consumer_key: items["consumer_key"],
+     //        consumer_secret: items["consumer_secret"],
+     //        access_token: items["access_token"],
+     //        access_token_secret: items["access_token_secret"]
+     //    });
 	});
 }
 
@@ -77,6 +67,20 @@ function eventful_search() {
         			description: summary
         		});
             }
+        });
+    });
+}
+
+function add_static_events() {
+    $.get("events.xml", function (data) {
+        $(data).find("item").each(function () {
+            var el = $(this);
+            Events.insert({
+                title: el.find("title").text(),
+                date: el.find("pubdate").text(),
+                link: el.find("link").text(),
+                description: el.find("description").text()
+            });
         });
     });
 }

@@ -37,18 +37,29 @@ function eventful_search() {
             "date": "Next week",
             after_start_date: "Future",
             sort_order: "date",
+            image_sizes: "block250",
         };
         EVDB.API.call("json/events/search", oArgs, function(oData) {
             console.log(oData);
             for (i = 0; i < oData.events.event.length; i++)
             {
-            var summary = descToSummary(oData.events.event[i].description);
-        		Events.insert({
-        			title: oData.events.event[i].title,
-        			date: oData.events.event[i].start_time,
-        			link: oData.events.event[i].url,
-        			description: summary
-        		});
+                var summary = descToSummary(oData.events.event[i].description);
+                if (oData.events.event[i].image != null) {
+        		    Events.insert({
+        			    title: oData.events.event[i].title,
+        			    date: oData.events.event[i].start_time,
+        			    link: oData.events.event[i].url,
+        			    description: summary,
+                        picture: oData.events.event[i].image.block250.url,
+        		    });
+                } else {
+        		    Events.insert({
+        			    title: oData.events.event[i].title,
+        			    date: oData.events.event[i].start_time,
+        			    link: oData.events.event[i].url,
+        			    description: summary,
+        		    });
+                }
             }
         });
     });
